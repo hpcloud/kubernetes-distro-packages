@@ -6,7 +6,7 @@
     # --deb-default FILEPATH        (deb only) Add FILEPATH as /etc/default configuration
     # --deb-upstart FILEPATH        (deb only) Add FILEPATH as an upstart script
 
-ETCD_VERSION=2.2.2
+ETCD_VERSION=2.2.5
 
 rm -rf etcd/source
 mkdir etcd/source
@@ -15,6 +15,7 @@ rm -f etcd/builds/etcd-$ETCD_VERSION-1.x86_64.rpm
 rm -f etcd/builds/etcd-$ETCD_VERSION-1.x86_64.rpm
 rm -f etcd/builds/etcd-$ETCD_VERSION-1.x86_64.rpm
 
+mkdir -p etcd/builds/systemd
 
 curl -L  https://github.com/coreos/etcd/releases/download/v$ETCD_VERSION/etcd-v$ETCD_VERSION-linux-amd64.tar.gz | tar xvz -C etcd/source --strip-components 1
 
