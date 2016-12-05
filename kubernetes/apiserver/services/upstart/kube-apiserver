@@ -1,0 +1,24 @@
+description "Kubernetes API daemon"
+
+start on (net-device-up
+  and started etcd
+  and started flanneld
+  and local-filesystems
+  and runlevel [2345])
+stop on runlevel [016]
+
+respawn
+respawn limit 10 5
+
+pre-start script
+    touch /var/log/kube-apiserver.log
+    chown kube /var/log/kube-apiserver.log
+end script
+
+script
+    if [ -f /etc/default/$UPSTART_JOB ]; then
+        . /etc/default/$UPSTART_JOB
+    fi
+
+    exec /usr/bin/kube-apiserver $DAEMON_ARGS >>/var/log/kube-apiserver.log 2>&1
+end script
