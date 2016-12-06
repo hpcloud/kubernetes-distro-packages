@@ -7,7 +7,7 @@ rm -f kubernetes/master/kubernetes-node_$K8S_VERSION_amd64.deb
 
 pushd kubernetes/source/kubernetes/v$K8S_VERSION
 tar xfvz kubernetes.tar.gz
-tar xfvz kubernetes/server/kubernetes-server-linux-amd64.tar.gz
+tar xfvz kubernetes-server-linux-amd64.tar.gz
 popd
 
 fpm -s dir -n "kubernetes-master" \
