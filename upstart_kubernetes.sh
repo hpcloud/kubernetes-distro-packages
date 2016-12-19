@@ -5,7 +5,6 @@ K8S_VERSION=${K8S_VERSION:-1.1.2}
 rm -f kubernetes/builds/kubernetes-*_${K8S_VERSION}_amd64.deb
 
 pushd kubernetes/source/kubernetes/v$K8S_VERSION
-tar xfvz kubernetes.tar.gz
 tar xfvz kubernetes-server-linux-amd64.tar.gz
 popd
 
