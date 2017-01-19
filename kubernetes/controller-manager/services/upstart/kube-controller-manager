@@ -8,7 +8,7 @@ start on (net-device-up
 stop on runlevel [016]
 
 respawn
-respawn limit 10 5
+post-stop exec sleep 10
 
 pre-start script
     touch /var/log/kube-controller-manager.log
